@@ -43,4 +43,17 @@ RCT_EXPORT_METHOD(
     resolve(@YES);
 }
 
+RCT_EXPORT_METHOD(
+    profileRequest:(NSArray *)attributes
+    resolver:(RCTPromiseResolveBlock)resolve
+    rejecter:(RCTPromiseRejectBlock)reject
+) {
+    [_defender doProfileRequestWithOptions:@{
+        THMCustomAttributes: attributes,
+    } andCallbackBlock:^(NSDictionary *result) {
+        THMStatusCode statusCode = [[result valueForKey:THMProfileStatus] integerValue];
+        resolve(@(statusCode));
+    }];
+}
+
 @end
