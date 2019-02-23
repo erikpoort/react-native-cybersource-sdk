@@ -18,10 +18,17 @@ import java.util.List;
  */
 
 public class RNCyberSourceSDKPackage implements ReactPackage {
+    private final Application _application;
+
+    public RNCyberSourceSDKPackage(Application application) {
+        super();
+        _application = application;
+    }
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNCyberSourceSDKModule(reactContext));
+        modules.add(new RNCyberSourceSDKModule(reactContext, _application));
         return modules;
     }
 
