@@ -91,7 +91,7 @@ class RNCyberSourceSDKModule extends ReactContextBaseJavaModule {
 
         @Override
         public void complete(Profile.Result result) {
-            _promise.resolve(result.getStatus());
+            _promise.resolve(result.getStatus().ordinal());
         }
     }
 }
