@@ -13,12 +13,8 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 class RNCyberSourceSDKModule extends ReactContextBaseJavaModule {
     private static final String CYBERSOURCE_SDK = "RNCyberSourceSDKModule";
 
-    private final Application _application;
-
-    RNSalesforceDMPModule(ReactApplicationContext reactContext, Application application) {
+    RNCyberSourceSDKModule(ReactApplicationContext reactContext) {
         super(reactContext);
-
-        this._application = application;
     }
 
     @Override
