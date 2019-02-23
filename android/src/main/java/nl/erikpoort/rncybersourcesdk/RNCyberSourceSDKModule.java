@@ -77,7 +77,7 @@ class RNCyberSourceSDKModule extends ReactContextBaseJavaModule {
             }
         }
 
-        ProfilingOptions options = new ProfilingOptions();//.setCustomAttributes(list);
+        ProfilingOptions options = new ProfilingOptions().setCustomAttributes(list);
         TrustDefender.getInstance().doProfileRequest(options, new CompletionNotifier(promise));
     }
 
