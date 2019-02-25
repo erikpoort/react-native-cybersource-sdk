@@ -71,11 +71,14 @@ function configure(orgId, serverURL) {
 /**
  * Profile request
  * @param {Array.<string>} attributes A list of custom attributes
- * @return {promise} A promise containing the profile result status (Status enum)
+ * @return {promise} An object containing a sessionId, and a status (Status enum)
  */
 function profileRequest(attributes) {
   return RNCyberSourceSDKModule.profileRequest(attributes).then(result => {
-    return Status.init(result)
+    return {
+      sessionId: result.sessionId,
+      status: Status.init(result.status),
+    }
   })
 }
 

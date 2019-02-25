@@ -52,7 +52,10 @@ RCT_EXPORT_METHOD(
         THMCustomAttributes: attributes,
     } andCallbackBlock:^(NSDictionary *result) {
         THMStatusCode statusCode = [[result valueForKey:THMProfileStatus] integerValue];
-        resolve(@(statusCode));
+        resolve(@{
+              @"sessionId": [result valueForKey:THMSessionID],
+              @"status": @(statusCode),
+        });
     }];
 }
 

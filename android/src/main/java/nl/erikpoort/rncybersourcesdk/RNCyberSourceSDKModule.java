@@ -8,6 +8,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.Promise;
 
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeMap;
 import com.threatmetrix.TrustDefender.Config;
 import com.threatmetrix.TrustDefender.EndNotifier;
 import com.threatmetrix.TrustDefender.ProfilingOptions;
@@ -67,7 +69,7 @@ class RNCyberSourceSDKModule extends ReactContextBaseJavaModule {
             return;
         }
 
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
 
         int leni = attributes.size();
         for (int i = 0; i < leni; ++i) {
@@ -91,7 +93,10 @@ class RNCyberSourceSDKModule extends ReactContextBaseJavaModule {
 
         @Override
         public void complete(Profile.Result result) {
-            _promise.resolve(result.getStatus().ordinal());
+            WritableMap map = new WritableNativeMap();
+            map.putString("sessionId", result.getSessionID());
+            map.putInt("status", result.getStatus().ordinal());
+            _promise.resolve(map);
         }
     }
 }
