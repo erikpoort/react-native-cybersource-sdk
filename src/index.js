@@ -50,7 +50,7 @@ var Status = {
       // This will map the index / value of the android enum ordinal to the ios enum ordinal
       // E.g.: The ordinal for 'internal error' in android is 5, in ios it is 6, so we map 5 to 6
       map = {5: 6, 6: 5, 8: 10, 9: 8, 13: 11, 14: 13, 15: 14, 16: 15}
-      mappedValue = map[rawValue]
+      mappedValue = map[rawValue] ? map[rawValue] : rawValue
     }
 
     return Status.properties[mappedValue]
