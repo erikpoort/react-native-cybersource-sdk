@@ -18,7 +18,7 @@
     "cybersource"
   ],
   "author": "Erik Poort",
-  "license": "GNU General Public License v3.0",
+  "license": "MIT License",
   "bugs": {
     "url": "https://github.com/erikpoort/react-native-cybersource-sdk/issues"
   },
